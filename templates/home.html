@@ -31,23 +31,30 @@
                     <div class="card-body">
                         {{tsk.task}}
                         <span style="position: relative; float: right;">
-                            <a class="btn btn-success"><i class="fa fa-check"></i> Mark as Done</a>
-                            <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                            <a class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                            <a href="{% url 'done' tsk.pk %}" class="btn btn-success"><i class="fa fa-check"></i> Mark as Done</a>
+                            <a href="{% url 'del' tsk.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="{% url 'update' tsk.pk %}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
                         </span>
                     </div>
                 </div>
                 {% endfor %}
             </div>
+            
             <div class="col-md-5 col-lg-5">
                 <h5>Completed Tasks</h5>
                 <!-- List of all the tasks that have completed -->
+                {% for tsk in completed_tasks %}
                 <div class="card m-1">
-                    <div class="card-body">
-                        This is the completed task.
+                    <div class="card-body" style="display: flex; justify-content: space-between;">
+                        <span>{{ forloop.counter }}. {{tsk.task}}</span>
+                        <span>
+                            <a href="{% url 'undone' tsk.pk %}" class="btn btn-danger"> <i class="fa fa-check"></i>Mark as undone</a>
+                        </span>
                     </div>
                 </div>
+                {% endfor %}
             </div>
+            
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-6 p-0" style="position: absolute; bottom: 50px;">
