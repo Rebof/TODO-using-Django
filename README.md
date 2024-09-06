@@ -1,0 +1,1 @@
+A simple Django-based todo app that performs basic CRUD operations: create, read, update, and delete tasks. Easily manage your tasks with a clean and intuitive interface. Modify tasks as needed, mark them as completed, or delete them when done. Ideal for managing daily tasks and staying organized.
